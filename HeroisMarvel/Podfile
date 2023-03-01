@@ -6,8 +6,8 @@ target 'HeroisMarvel' do
   use_frameworks!
 
   # Pods for HeroisMarvel
-  pod 'Alamofire' # HTTP networking library - https://github.com/Alamofire/Alamofire
-  pod 'Kingfisher', '~> 7.0' # Download e cache de imagens - https://github.com/onevcat/Kingfisher
-  pod 'SwiftHash' # Para gerar MD5 - https://github.com/onmyway133/SwiftHash
+  pod 'Alamofire'               # HTTP networking library - https://github.com/Alamofire/Alamofire
+  pod 'Kingfisher', '~> 7.0'    # Download e cache de imagens - https://github.com/onevcat/Kingfisher
+  pod 'SwiftHash'               # Para gerar MD5 - https://github.com/onmyway133/SwiftHash
 
 end
