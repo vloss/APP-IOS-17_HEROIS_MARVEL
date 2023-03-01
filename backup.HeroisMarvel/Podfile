@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HeroisMarvel' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HeroisMarvel
+  pod 'Alamofire'               # HTTP networking library - https://github.com/Alamofire/Alamofire
+  pod 'Kingfisher', '~> 7.0'    # Download e cache de imagens - https://github.com/onevcat/Kingfisher
+  pod 'SwiftHash'               # Para gerar MD5 - https://github.com/onmyway133/SwiftHash
+
+end
