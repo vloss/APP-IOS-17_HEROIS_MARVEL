@@ -1,8 +1,0 @@
-Target dependency graph (4 targets)
-Alamofire in Pods, no dependencies
-Kingfisher in Pods, no dependencies
-SwiftHash in Pods, no dependencies
-Pods-HeroisMarvel in Pods, depends on:
-Alamofire in Pods (explicit)
-Kingfisher in Pods (explicit)
-SwiftHash in Pods (explicit)
