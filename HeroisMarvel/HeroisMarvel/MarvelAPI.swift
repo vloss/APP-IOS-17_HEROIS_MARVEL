@@ -12,12 +12,13 @@ import Alamofire // Para acessar metodos da dependencia que foi importada ao pro
 
 class MarvelAPI {
     
-    static private let basePath     = "http://gateway.marvel.com/v1/public/characters?"
+    static private let basePath     = "https://gateway.marvel.com/v1/public/characters?"
     static private let privateKey   = "a16c78f936bae5d78116fa674e0fc5f8e0a3649a"
     static private let publicKey    = "dcc6a1ae0f6982e9750daf64f6ee4ea6"
     static private let limit        = 50
     
     class func loadHeros(name: String?, page: Int = 0, onComplete: @escaping (MarvelInfo?) -> Void){
+        
         let offset = page * limit
         let startsWith: String
         
@@ -29,9 +30,11 @@ class MarvelAPI {
         
         let url = basePath + "offset=\(offset)&limit=\(limit)&" + startsWith + getCredentials()
         print(url)
-        
+    //http://gateway.marvel.com/v1/public/characters?offset=0&limit=50&nameStartsWith=Homem&ts=1677730356.471497&apikey=dcc6a1ae0f6982e9750daf64f6ee4ea6&hash=8742428897c4be38d15329c161f76b78
+    
         
         AF.request(url).response { (response) in
+            debugPrint(response)
             guard let data = response.data,
                   let marvelInfo = try? JSONDecoder().decode(MarvelInfo.self, from: data),
                   marvelInfo.code == 200 else {

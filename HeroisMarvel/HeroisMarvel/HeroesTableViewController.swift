@@ -13,25 +13,42 @@ class HeroesTableViewController: UITableViewController {
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .red
         return label
     }()
+    var name: String?
+    var heroes: [Hero] = []
+    var loadingHeros = false
+    var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = "Buscando herois, aguarde..."
+        loadHeroes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    func loadHeroes(){
+        loadingHeros = true
+        
+        MarvelAPI.loadHeros(name: name, page: currentPage) { (info) in
+            if let info = info {
+                self.heroes += info.data.results
+                print("AQUIII22222222")
+                debugPrint(self.heroes)
+            }
+        }
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return heroes.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -39,7 +56,6 @@ class HeroesTableViewController: UITableViewController {
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
