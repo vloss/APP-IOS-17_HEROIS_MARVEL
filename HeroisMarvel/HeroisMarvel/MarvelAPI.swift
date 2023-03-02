@@ -30,19 +30,30 @@ class MarvelAPI {
         
         let url = basePath + "offset=\(offset)&limit=\(limit)&" + startsWith + getCredentials()
         print(url)
-    //http://gateway.marvel.com/v1/public/characters?offset=0&limit=50&nameStartsWith=Homem&ts=1677730356.471497&apikey=dcc6a1ae0f6982e9750daf64f6ee4ea6&hash=8742428897c4be38d15329c161f76b78
-    
-        
-        AF.request(url).response { (response) in
-            debugPrint(response)
-            guard let data = response.data,
-                  let marvelInfo = try? JSONDecoder().decode(MarvelInfo.self, from: data),
-                  marvelInfo.code == 200 else {
-                  onComplete(nil)
-                  return
+
+        // Sugestão da IDE pois responseJSON será descontinuado
+        AF.request(url).validate().responseDecodable(of: MarvelInfo.self) { response in
+            switch response.result {
+                case .success:
+                    onComplete(response.value)
+                    print("SUCESSO:", response)
+                case let .failure(error):
+                    onComplete(nil)
+                    print("ERRO: ", error)
             }
-            onComplete(marvelInfo)
         }
+        
+//        COMO FOI MOSTRADO NO CURSO
+//        AF.request(url).responseJSON { (response) in
+//             //debugPrint(response)
+//            guard let data = response.data,
+//                  let marvelInfo = try? JSONDecoder().decode(MarvelInfo.self, from: data),
+//                  marvelInfo.code == 200 else {
+//                  onComplete(nil)
+//                  return
+//            }
+//            onComplete(marvelInfo)
+//        }
     }
     
     private class func getCredentials() -> String {

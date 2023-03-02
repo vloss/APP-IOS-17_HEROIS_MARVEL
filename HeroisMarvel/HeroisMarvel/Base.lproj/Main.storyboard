@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IsA-ug-Rpq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oJr-sf-MgO">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="tZt-vh-Wqg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-1" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8z-iZ-TmO">
@@ -153,9 +153,9 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="ivThumb" destination="Aki-LY-asC" id="CoI-7D-NCS"/>
-                                    <outlet property="lbDescription" destination="L3s-sd-nOJ" id="zNu-np-iBe"/>
-                                    <outlet property="lbName" destination="sEf-mg-oq0" id="vSu-tI-i5s"/>
+                                    <outlet property="ivThumb" destination="Aki-LY-asC" id="hFN-Vc-Sh4"/>
+                                    <outlet property="lbDescription" destination="L3s-sd-nOJ" id="71F-C2-Teu"/>
+                                    <outlet property="lbName" destination="sEf-mg-oq0" id="oXZ-qo-sgD"/>
                                     <segue destination="wbg-dF-UHh" kind="show" id="1JN-Yt-CJs"/>
                                 </connections>
                             </tableViewCell>
