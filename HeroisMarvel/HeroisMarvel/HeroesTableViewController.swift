@@ -33,6 +33,11 @@ class HeroesTableViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! HeroViewController
+        vc.hero = heroes[tableView.indexPathForSelectedRow!.row]
+    }
+    
     func loadHeroes(){
         loadingHeros = true
         
@@ -72,6 +77,14 @@ class HeroesTableViewController: UITableViewController {
         cell.prepareCell(with: hero)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == heroes.count - 10 && !loadingHeros && heroes.count != total {
+            currentPage += 1
+            loadHeroes()
+            print("Carregando Heróis")
+        }
     }
 
     /*
